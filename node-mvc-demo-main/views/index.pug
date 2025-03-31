@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title MVC Example
+    link(rel="stylesheet" href="/style.css")
+  body
+    h1 Item List
+    ul
+      each item in items
+        li
+          span= item.name
+          // Add delete form with button
+          form(action=`/delete/${item._id}` method="POST" style="display: inline; margin-left: 10px;")
+            button(type="submit" class="delete-btn") Delete
+    form(action="/add" method="POST")
+      input(type="text" name="name" placeholder="Enter item" required)
+      button(type="submit") Add Item
+    script(src="/script.js") 
